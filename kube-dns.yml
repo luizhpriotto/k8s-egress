@@ -5,4 +5,4 @@ metadata:
   namespace: kube-system
 data:
   stubDomains: |
-    {"egress.local": ["coredns-coredns.coredns.svc.cluster.local"]}
+    {"egress.local": ["kube-dns.kube-system.svc.cluster.local"]}
