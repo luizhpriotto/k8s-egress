@@ -1,3 +1,6 @@
+This fork was created to adjust the same function for Rancher (RKE).
+
+
 # Overview
 
 This repo contains a proof-of-concept to enable Linkerd's metrics, retries, and other features for external (off-cluster or 3rd-party) HTTP calls. For example, with this POC, all calls to `api.github.com` can be monitored for success rate, retried automatically, and so on.
