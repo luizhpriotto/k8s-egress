@@ -98,29 +98,3 @@ spec:
           mountPath: /etc/nginx
         - name: resolvers-data
           mountPath: /etc/nginx/resolvers-data
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: coredns
-  namespace: kube-system
-data:
-  Corefile: |-
-    .:53 {
-        errors
-        health {
-          lameduck 5s
-        }
-        ready
-        kubernetes cluster.local in-addr.arpa ip6.arpa {
-          pods insecure
-          fallthrough in-addr.arpa ip6.arpa
-        }
-        prometheus :9153
-        forward . "/etc/resolv.conf"
-        cache 30
-        loop
-        reload
-        loadbalance
-        rewrite name regex (.*)\.egress.local proxy.egress.svc.cluster.local
-    } # STUBDOMAINS - Rancher specific change
